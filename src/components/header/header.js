@@ -5,7 +5,15 @@ import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
 import LocationOnIcon from '@material-ui/icons/LocationOn';
 import { Link } from 'react-router-dom'
 
-const Header = () => {
+const Header = ({ cartItems }) => {
+   const getCount = () => {
+      let count = 0;
+      cartItems.forEach((item) => {
+         count += item.product.quantity
+      })
+      return count;
+   }
+
    return (
       <Container>
 
@@ -47,7 +55,7 @@ const Header = () => {
             <HeaderOptionCart>
                <Link to="/cart">
                   <ShoppingBasketIcon />
-                  <CartCount>5</CartCount>
+                  <CartCount>{getCount()}</CartCount>
                </Link>
             </HeaderOptionCart>
 

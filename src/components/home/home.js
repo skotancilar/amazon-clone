@@ -22,7 +22,6 @@ function Home() {
       getProducts();
    }, [])
 
-   console.log(products);
    const renderProducts = products?.map((data) => {
       return (
          <Product
@@ -30,6 +29,7 @@ function Home() {
             price={data.product.price}
             rating={data.product.rating}
             imgUrl={data.product.imgUrl}
+            id={data.id}
             key={data.id}
          />
       )
